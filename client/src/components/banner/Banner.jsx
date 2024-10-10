@@ -4,7 +4,7 @@ import './banner.css';
 const Banner = () => {
   const [sliderIndex, setSliderIndex] = useState(0);
   const timeoutRef = useRef(null);
-  const timeRunning = 3000;
+  
   const timeAutoNext = 7000;
 
   const items = [
