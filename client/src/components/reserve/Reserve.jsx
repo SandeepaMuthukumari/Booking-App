@@ -10,7 +10,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Reserve = ({ setOpen, hotelId }) => {
-  const { data, loading, error } = useFetch(`http://localhost:3000/hotels/room/${hotelId}`);
+  const { data, loading, error } = useFetch(`https://booking-app-4-pmdb.onrender.com/hotels/room/${hotelId}`);
   const { dates } = useContext(SearchContext);
   const [selectedRooms, setSelectedRooms] = useState([]);
   const navigate = useNavigate(); // Moved to the top level
