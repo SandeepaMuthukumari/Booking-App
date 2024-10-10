@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'http://localhost:8000',
+      target: 'https://booking-app-4-pmdb.onrender.com',
       changeOrigin: true,
     })
   );
