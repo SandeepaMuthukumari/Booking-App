@@ -1,11 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import './banner.css';
 
 const Banner = () => {
   const [sliderIndex, setSliderIndex] = useState(0);
-  const timeoutRef = useRef(null);
-  
-  const timeAutoNext = 7000;
 
   const items = [
     {
@@ -33,38 +30,24 @@ const Banner = () => {
       img: './image4.jpeg',
       author: 'BANDARAWELA',
       title: 'INSPIRED BY',
-      topic:'DESTINATIONS',
+      topic: 'DESTINATIONS',
       description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?'
     }
   ];
 
-  const nextSlide = () => {
+  // Memoize the nextSlide function using useCallback to prevent it from changing on each render
+  const nextSlide = useCallback(() => {
     setSliderIndex((prevIndex) => (prevIndex + 1) % items.length);
-  };
+  }, [items.length]);
 
   const prevSlide = () => {
     setSliderIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
   };
 
-
-
   useEffect(() => {
     const timer = setInterval(nextSlide, 3000);
     return () => clearInterval(timer);
- }, [nextSlide]);  // Add 'nextSlide' to the dependency array
- 
-   /*
-  useEffect(() => {
-    timeoutRef.current = setTimeout(() => {
-      nextSlide();
-    }, timeAutoNext);
-
-
-
-
-    return () => clearTimeout(timeoutRef.current);
-  }, [sliderIndex]);
-  */
+  }, [nextSlide]);  // Now nextSlide is stable and won't trigger unnecessary re-renders
 
   return (
     <div className="carousel">
