@@ -35,7 +35,7 @@ const Banner = () => {
     }
   ];
 
-  // Memoize the nextSlide function using useCallback to prevent it from changing on each render
+  // Memoize the nextSlide function using useCallback to prevent it from changing on each render.
   const nextSlide = useCallback(() => {
     setSliderIndex((prevIndex) => (prevIndex + 1) % items.length);
   }, [items.length]);
