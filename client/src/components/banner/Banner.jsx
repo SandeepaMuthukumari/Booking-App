@@ -46,7 +46,14 @@ const Banner = () => {
     setSliderIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
   };
 
-  /*
+
+
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 3000);
+    return () => clearInterval(timer);
+ }, [nextSlide]);  // Add 'nextSlide' to the dependency array
+ 
+   /*
   useEffect(() => {
     timeoutRef.current = setTimeout(() => {
       nextSlide();
@@ -58,12 +65,6 @@ const Banner = () => {
     return () => clearTimeout(timeoutRef.current);
   }, [sliderIndex]);
   */
-
-  useEffect(() => {
-    const timer = setInterval(nextSlide, 3000);
-    return () => clearInterval(timer);
- }, [nextSlide]);  // Add 'nextSlide' to the dependency array
- 
 
   return (
     <div className="carousel">
