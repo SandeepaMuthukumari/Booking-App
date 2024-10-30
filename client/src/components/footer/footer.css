@@ -1,0 +1,46 @@
+.footer {
+  width: 100%;
+  background-size: cover; /* Ensure the image covers the entire footer */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff; /* Ensure text is readable over the background image */
+}
+
+.fLists {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.fList {
+  list-style: none;
+  padding: 0;
+  margin: 0 20px;
+  flex: 1;
+  min-width: 150px;
+}
+
+.fListItem {
+  margin-bottom: 10px;
+  cursor: pointer;
+  color: black; /* Ensure text is readable over the background image */
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.fListItem:hover {
+  color: #ddd; /* Slight color change on hover */
+}
+
+.fText {
+  margin-top: 20px;
+  font-size: 14px;
+  color: blue; /* Ensure text is readable over the background image */
+}
+
+
