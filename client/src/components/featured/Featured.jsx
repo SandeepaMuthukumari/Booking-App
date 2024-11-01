@@ -3,7 +3,7 @@ import "./featured.css";
 
 const Featured = () => {
   const { data, loading, error } = useFetch(
-    "/hotels/countByCity?cities=Kandy,Sigiriya,Galle"
+    "https://booking-app-b5mx.onrender.com/hotels/countByCity?cities=Kandy,Sigiriya,Galle"
   );
 
   if (loading) return <p>Loading...</p>;
