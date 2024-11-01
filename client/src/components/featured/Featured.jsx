@@ -70,7 +70,7 @@ import "./featured.css";
 const Featured = () => {
   const backendUrl = process.env.REACT_APP_BACKEND_URL; // Use the environment variable
   const { data, loading, error } = useFetch(
-    `${backendUrl}/hotels/countByCity?cities=Kandy,Sigiriya,Galle` // Use the backend URL
+    `${backendUrl}/api/hotels/countByCity?cities=Kandy,Sigiriya,Galle` // Use the backend URL
   );
 
   if (loading) return <p>Loading...</p>;
