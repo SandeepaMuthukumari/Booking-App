@@ -2,7 +2,8 @@ import useFetch from "../../hooks/useFetch";
 import "./featuredProperties.css";
 
 const FeaturedProperties = () => {
-  const { data, loading, error } = useFetch("/hotels?featured=true&limit=4");
+  const backendUrl = process.env.REACT_APP_BACKEND_URL; 
+  const { data, loading, error } = useFetch("https://booking-app-b5mx.onrender.com/hotels?featured=true&limit=4");
 
   return (
     <div className="fp">

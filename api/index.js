@@ -60,7 +60,7 @@ app.get('/hotels', async (req, res) => {
 
 
 
-app.listen(8000, () => {
+app.listen(port, () => {
   connect();
   console.log("Connected to backend.");
 });
