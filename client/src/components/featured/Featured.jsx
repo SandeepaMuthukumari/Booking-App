@@ -63,24 +63,26 @@
 // export default Featured;
 
 
-
+//
 import useFetch from "../../hooks/useFetch";
 import "./featured.css";
 
 const Featured = () => {
   const backendUrl = process.env.REACT_APP_BACKEND_URL; // Use the environment variable
   const { data, loading, error } = useFetch(
-    `${backendUrl}/hotels/countByCity?cities=Kandy,Sigiriya,Galle` // Update to use the backend URL
+    `${backendUrl}/hotels/countByCity?cities=Kandy,Sigiriya,Galle` // Use the backend URL
   );
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+
+  if (error) {
+    console.error("Error fetching data:", error); // Log the error for debugging
+    return <p>Error: {error.message}</p>;
+  }
   
   return (
     <div className="featured">
-      {loading ? (
-        "Loading please wait"
-      ) : (
+      {data && data.length > 0 ? ( // Check if data exists and has elements
         <>
           <div className="featuredItem">
             <img
@@ -118,12 +120,15 @@ const Featured = () => {
             </div>
           </div>
         </>
+      ) : (
+        <p>No data available</p> // Handle case where data array is empty
       )}
     </div>
   );
 };
 
 export default Featured;
+
 
 
 
