@@ -1,4 +1,4 @@
-/*import useFetch from "../../hooks/useFetch";
+import useFetch from "../../hooks/useFetch";
 import "./featured.css";
 
 const Featured = () => {
@@ -61,70 +61,7 @@ const Featured = () => {
 };
 
 export default Featured;
-*/
-import useFetch from "../../hooks/useFetch";
-import "./featured.css";
 
-const Featured = () => {
-  // Set the base URL for production
-  const API_BASE_URL = "https://booking-app-b5mx.onrender.com";
-  
-  // Use the full URL with base URL for the `useFetch` hook
-  const { data, loading, error } = useFetch(
-    `${API_BASE_URL}/hotels/countByCity?cities=Kandy,Sigiriya,Galle`
-  );
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-
-  return (
-    <div className="featured">
-      {loading ? (
-        "Loading please wait"
-      ) : (
-        <>
-          <div className="featuredItem">
-            <img
-              src="https://thumbs.dreamstime.com/b/temple-tooth-relic-lord-buddha-kandy-sri-lanka-sanctuary-263945726.jpg"
-              alt="Kandy"
-              className="featuredImg"
-            />
-            <div className="featuredTitles">
-              <h1>Kandy</h1>
-              <h2>{data[0]?.count || 0} properties</h2>
-            </div>
-          </div>
-
-          <div className="featuredItem">
-            <img
-              src="https://th.bing.com/th/id/R.dade39779e7549015f83af8f8782e6e8?rik=IHFleItx%2by2chw&riu=http%3a%2f%2fwww.pearlceylon.com%2fimages%2fdestination%2fsigiriya%2fsigiriya-by-air.jpg&ehk=qBvBwGXJvH%2fks4lehtxalJjDvmSDg8BAUkxTRWpI%2bWo%3d&risl=&pid=ImgRaw&r=0"
-              alt="Sigiriya"
-              className="featuredImg"
-            />
-            <div className="featuredTitles">
-              <h1>Sigiriya</h1>
-              <h2>{data[1]?.count || 0} properties</h2>
-            </div>
-          </div>
-
-          <div className="featuredItem">
-            <img
-              src="https://d3e1m60ptf1oym.cloudfront.net/c6660c47-c004-4332-a988-a6c1cbbd1ca3/JW_012219_6377_uxga.jpg"
-              alt="Galle"
-              className="featuredImg"
-            />
-            <div className="featuredTitles">
-              <h1>Galle</h1>
-              <h2>{data[2]?.count || 0} properties</h2>
-            </div>
-          </div>
-        </>
-      )}
-    </div>
-  );
-};
-
-export default Featured;
 
 
 
