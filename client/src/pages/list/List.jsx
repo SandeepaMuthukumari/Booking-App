@@ -18,8 +18,11 @@ const List = () => {
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
 
+  // Update the API URL to your backend endpoint
+  const API_URL = "https://booking-app-b5mx.onrender.com/hotels";
+
   const { data, loading, reFetch } = useFetch(
-    `/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
+    `${API_URL}?city=${destination}&min=${min || 0}&max=${max || 999}`
   );
 
   const handleClick = () => {
@@ -110,7 +113,7 @@ const List = () => {
           </div>
           <div className="listResult">
             {loading ? (
-              "loading"
+              "Loading..."
             ) : (
               <>
                 {data.map((item) => (
